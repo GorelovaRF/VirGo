@@ -1,0 +1,80 @@
+<ion-app>
+  <ion-menu menuId="main-menu" content-id="main">
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-menu-toggle style="height:10px ;">
+          <ion-title class="mt-1 mb-1 text-center">
+            <img style="cursor: pointer" routerLink="home" class="logo" src="../assets/icon/favicon.png">
+          </ion-title>
+        </ion-menu-toggle>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-list class="pt-0">
+          <ion-menu-toggle>
+            <ion-item routerLink="home">
+              <ion-label>{{'menu.home' | translate}}</ion-label>
+            </ion-item>
+            <!-- If user doesn't logged -->
+
+            <div class="mt-2" *ngIf="usuario == undefined">
+              <div class="mt-2 ">
+                <!-- <label class="ms-3 mt-3 menuMark">Cuenta</label> -->
+                <ion-item routerLink="login">
+                  <ion-label>{{'menu.login' | translate}}</ion-label>
+                </ion-item>
+                <ion-item (click)="openLangPopover($event)">
+                  <ion-label>{{'language' | translate }}</ion-label>
+                  <!-- <ion-button  class="btn btn-light" (click)="openLangPopover($event)">
+                    <ion-icon name="caret-down-outline" slot="end"></ion-icon>
+                  </ion-button> -->
+                </ion-item>
+              </div>
+
+
+            </div>
+
+            <div class="mt-2" *ngIf="usuario">
+
+              <div class="mt-2">
+                <label class="ms-3 mt-3 menuMark">{{'menu.account' | translate}}</label>
+                <ion-item routerLink="profile">
+                  <ion-label>{{'menu.perfil' | translate}}</ion-label>
+                </ion-item>
+
+                <div class="mt-2">
+                  <ion-item routerLink="settings">
+                    <ion-label>{{'menu.settings' | translate}}</ion-label>
+                  </ion-item>
+                  <!-- <ion-item>
+                    <ion-label>{{'language' | translate }}</ion-label>
+                    <ion-select (click)='languageChange(lng.value)'>
+                      [placeholder]='"lang" | translate'>
+                      <ion-select-option *ngFor="let lng of languages" value='lng.value'>{{lng.text}}</ion-select-option>
+                      <ion-select-option value='es'>Español</ion-select-option>
+                      <ion-select-option value='en'>English</ion-select-option> 
+                    </ion-select>
+                  </ion-item>-->
+                  <ion-item (click)="openLangPopover($event)">
+                    <ion-label>{{'language' | translate }}</ion-label>
+                    <!-- <ion-button  class="btn btn-light" (click)="openLangPopover($event)">
+                      <ion-icon name="caret-down-outline" slot="end"></ion-icon>
+                    </ion-button> -->
+                  </ion-item>
+                  <ion-item (click)="onLogoutClick()">
+                    <ion-label>{{'menu.logout' | translate}}</ion-label>
+                  </ion-item>
+                </div>
+              </div>
+            </div>
+
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

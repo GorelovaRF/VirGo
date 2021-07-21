@@ -1,0 +1,173 @@
+<app-mainmenu></app-mainmenu>
+
+<ion-content *ngIf="usuario">
+  <div class="container-fluid mt-3">
+    <app-user-info></app-user-info>
+    <form class="card" [formGroup]="updateForm" name="blogForm" (submit)="updateUserInfo()">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="userName" class="form-label" >{{'register.name' | translate}}</label>
+          <input type="text" class="form-control" name="userName" id="userName" formControlName="userName" value="{{usuario.Us_nombre}}"  required>
+        </div>
+       
+        <div class="mb-3">
+          <label for="userPhone" class="form-label">{{'register.phone' | translate}}</label>
+          <input type="tel" class="form-control" name="userPhone" id="userPhone" formControlName="userPhone"  value="{{usuario.Telefono}}" required>
+        </div>
+        <div class="mb-3">
+          <label for="userPhoto" class="form-label">{{'register.foto' | translate}}</label>
+          <input type="text" class="form-control" id="userPhoto" name="userPhoto" formControlName="userPhoto" value="{{usuario.Us_foto}}"  required>
+        </div>
+
+        
+        <div class="mb-3" style="margin-bottom: 10px;">
+          <!-- <select class="custom-select" formControlName="userType" name="userType"  value="{{usuario.TipoUsuario}}" style="height: 20px;" [(ngModel)]="selectedValue" > -->
+            <select class="custom-select" formControlName="userType" name="userType"  value="{{usuario.TipoUsuario}}" style="height: 20px;"  (change)="onChange($event)" >
+            <option value="1">    
+              {{'register.settings.statusNormal' | translate}}
+            </option>
+            <option value="2">    
+              {{'register.settings.statusPremium' | translate}}
+            </option>
+          </select>
+        </div>
+
+        <!-- <div *ngIf="selectedValue == 2" class="mb-3" style="margin-bottom: 10px;"> -->
+        <div class="mb-3" *ngIf="selectedValue == 2"  class="animate-if" style="margin-bottom: 10px; padding: 10px;" class="card" >
+            <div>
+                <div class="row"> 
+                    <div> <img src="https://img.icons8.com/color/48/000000/visa.png" /> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /> <img src="https://img.icons8.com/color/48/000000/maestro.png" /> </div>
+                </div>
+               
+                 
+                  <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                      <span>{{'register.carHol' | translate}}</span>
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                      <input  placeholder="Anastasiia Gorelova" type="text" class="form-control" id="cardHolder" name="cardHolder" formControlName="cardHolder" required> 
+                    </div>
+
+                    <span class="text-danger"
+                    *ngIf="(formContr1.cardHolder.touched || submitted) && formContr1.cardHolder.errors?.required">
+                    {{'register.errcarHol' | translate}}
+                   </span>
+                   
+                    
+                  </div> 
+                  <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                      <span> {{'register.cardNumber' | translate}}</span>
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+                      <input placeholder="0125 6780 4567 9909" class="form-control" id="cardNumber" name="cardNumber" formControlName="cardNumber" required>
+                    </div>
+
+                    <span class="text-danger"
+                    *ngIf="(formContr1.cardNumber.touched || submitted) && formContr1.cardNumber.errors?.required">
+                    {{'register.errcardNumber' | translate}}
+                   </span>
+
+
+
+                  <div class="row">
+                      <div class="col-xs-12 col-md-3">
+                        <span> {{'register.expDate' | translate}}</span>
+                      </div>
+                      <div class="col-xs-12 col-md-3">
+                         <input placeholder="YY/MM" class="form-control" id="exprDate" name="exprDate" formControlName="exprDate" required>
+                      </div>
+                  </div>
+
+                  <span class="text-danger"
+                  *ngIf="(formContr1.exprDate.touched || submitted) && formContr1.exprDate.errors?.required">
+                  {{'register.errexpDate' | translate}}
+                 </span>
+                 <span class="text-danger"
+                 *ngIf="(formContr1.exprDate.touched || submitted) && formContr1.exprDate.errors?.pattern">
+                  {{'register.errexpDatePattern' | translate}}
+                </span>
+
+
+                   <div class="row">
+                      <div class="col-xs-12 col-md-3">
+                        <span>{{'register.cvv' | translate}}</span> 
+                      </div>
+                      <div class="col-xs-12 col-md-3">
+                        <input id="cvv" placeholder="123" class="form-control" id="cvv" name="cvv" formControlName="cvv" required> </div>
+                      </div>
+
+                      <span class="text-danger"
+                      *ngIf="(formContr1.cvv.touched || submitted) && formContr1.cvv.errors?.required">
+                      {{'register.errcvv' | translate}}
+                     </span>
+
+                   
+
+
+                  </div> 
+               
+              
+            </div>
+        
+        </div>
+
+        
+
+
+
+        <div class="text-center">
+          <button type="submit" class="btn w-100" style="background-color: #30BCB3; color: white;" >
+            {{'register.settings.btnSaveChanges' | translate}}
+          </button>
+        </div>
+
+      </div>
+    </form>
+
+    <form class="card" [formGroup]="updatePassForm" (submit)="updatePass()" style="padding: 15px; margin-top: 20px;" >
+
+      <div class="mb-3">
+        <label for="userPass" class="form-label">{{'register.pass' | translate}}</label>
+        <input type="password" class="form-control" name="userPass" id="userPass" formControlName="userPass"  value="{{usuario.Pass}}"  required>
+        <span class="text-danger"
+        *ngIf="(formContr.userPass.touched || submitted) && formContr.userPass.errors?.required">
+        {{'register.reqPass' | translate}}
+       </span>
+       <span class="text-danger"
+        *ngIf="formContr.userPass.touched && formContr.userPass.errors?.invalidPassword">
+        {{'register.caractPass' | translate}}
+        </span>
+
+      </div>
+
+      <div class="mb-3" *ngIf="formContr.userPass !== usuario.Pass">
+        <label for="confirmPass" class="form-label">{{'register.confirmPass' | translate}}</label>
+        <input type="password" class="form-control" id="confirmPass" name="confirmPass" formControlName="passConfirm" required>
+        <span class="text-danger"
+        *ngIf="formContr.passConfirm.touched && formContr.passConfirm.errors?.passwordMismatch">
+        {{'register.invalidPass' | translate}}
+        </span>
+      </div> 
+
+
+      <div class="text-center">
+        <button type="submit" class="btn w-100"  style="background-color: #30BCB3; color: white;" [disabled]="updatePassForm.invalid" >
+          {{'register.settings.changePass' | translate}}
+        </button>
+      </div>
+
+
+  </form>
+
+  <button (click)=presentAlertConfirm() class="deleteBut" style=" display:flex;
+  justify-content: center;
+   align-items: center;"> 
+    <ion-icon name="trash-outline" style="font-size: x-large; margin-right: 5px;"></ion-icon>
+    {{'register.settings.btnDelete' | translate}}
+  </button>
+
+  </div>
+
+  
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{'create.title' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" style="color: #30BCB3;"></ion-back-button>
+      <!-- <ion-menu-button menu="main-menu" style="color: #30BCB3;"></ion-menu-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+<div>
+
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" style="align-content: center;">
+     
+      <div style="text-align: center;">
+        <div class="row">
+          <div class="col-sm-12 col-12">
+            <textarea  class="centerDiv" placeholder="{{'create.message' | translate}}" name="messages" ngModel required #messages="ngModel"></textarea>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12 col-12" style="margin-top: 20px;">
+          <button class="btn b"  type="submit" > {{'create.send' | translate}}</button>
+        </div>
+      </div>
+      </div>
+      
+   </form>
+
+</div>
+
+</ion-content>
+

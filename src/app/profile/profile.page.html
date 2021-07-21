@@ -1,0 +1,53 @@
+<!-- <app-mainmenu></app-mainmenu> -->
+
+<ion-header [translucent]="true"  *ngIf="usuario !== undefined" (usuario)="usuario">
+  <ion-toolbar>
+    
+   
+      <ion-back-button defaultHref="home" slot="start" style=" color: #30BCB3;"></ion-back-button>
+        <ion-icon name="cog" slot="end" style="zoom: 2; margin-right: 5px;" (click)="goToSettings()"></ion-icon>  
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="container-fluid mt-3">
+    <app-user-info></app-user-info>
+
+    
+    <div>
+
+      <ion-card  *ngIf="!lugares || lugares.length === 0">
+        <ion-item class="ion-text-center">
+          <ion-label>{{'profile.favorPlace' | translate}}</ion-label>
+        </ion-item>
+      </ion-card>
+
+      
+
+      <div *ngFor="let lugar of lugares">
+        <ion-card  *ngIf="lugares || lugares.length !== 0" style="margin: 10px;"> 
+          <div class="row">
+            <ion-item class="col-9" (click)='mostrarDetalleLugar(lugar.Id)'>
+              <ion-label >
+                {{lugar.LugName}}
+              </ion-label>         
+            </ion-item>
+            <ion-item class="col-3" >
+                <ion-icon  name="trash-outline"  (click)='deleteFavPlace(lugar.Id)'></ion-icon>  
+            </ion-item>
+          </div>
+          
+        </ion-card>
+
+      </div>
+
+     
+    </div>
+
+    <div (click)="goToCreatePlace()" style="text-align: center;">
+      <h3 style="text-decoration: underline; color: #30BCB3;"> {{'profile.becomeOwner' | translate}}</h3>
+    </div>
+  </div>
+</ion-content>

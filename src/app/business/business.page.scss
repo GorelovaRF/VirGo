@@ -1,0 +1,160 @@
+.bPhoto{
+  width: 100%!important;
+  height: 330px;
+  object-fit: cover;
+}
+.btn-upload{
+  border: 1px solid rgba(128, 128, 128, 0.78);
+  color: grey;
+}
+.btn-upload:hover{
+  background-color: rgba(128, 128, 128, 0.78);
+  color: white;
+}
+#changePhoto{
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+textarea{
+  resize: none;
+}
+ion-icon{
+  font-size: 30px;
+  margin-top: 5px;
+}
+hr{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.center {
+  margin: auto;
+}
+
+.rating-list li {
+  float: right;
+  color: #ddd;
+  padding: 10px 5px;
+
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li, .rating-list li.selected {
+  color: #ffd700;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+}
+
+.stars {
+  color: #ffd700;
+}
+
+#indicators {
+  padding: 16px;
+  height: 40%;
+  width: 100%;
+  overflow-y: auto;
+  display: block;
+}
+
+.medidasSeg{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 2px;
+  border: 1px solid #2EAEA6;
+  border-radius: 10px;
+  width: 350px;
+  height: auto;
+  
+}
+
+.btnVirGo {
+  background-color: #30BCB3;
+  color: white;
+  width: 100%;
+}
+
+.centerC {
+  display:flex;
+  justify-content: center;
+   align-items: center;
+}
+
+.imgAvatar {
+  width: 50px;
+  height: 50px;
+  object-fit:cover;
+}
+
+.gif {
+  
+ object-fit: fill;
+}
+
+
+@media screen and (min-width: 300px) {   
+  .imgAvatar {
+
+    width: 60px;
+    height: 60px;
+    object-fit:cover;
+  }
+}
+
+@media screen and (min-width: 400px) {   
+  .imgAvatar {
+
+    width: 70px;
+    height: 70px;
+    object-fit:cover;
+  }
+}
+
+
+@media screen and (min-width: 544px) {      
+  .imgAvatar {
+
+    width: 90px;
+    height: 90px;
+    object-fit:cover;
+  }
+} 
+
+@media screen and (min-width: 768px) {      
+  .imgAvatar {
+
+    width: 100px;
+    height: 100px;
+    object-fit:cover;
+  }
+} 
+@media (min-width: 992px) {      
+  .imgAvatar {
+
+    width: 120px;
+    height: 120px;
+    object-fit:cover;
+  }
+}
+
+
+ul li{
+  float: left;
+  width: 50%;
+}
+ul{
+  list-style-type: disc;
+}
+
+
+input:invalid:not(:placeholder-shown) {border-color: red;}
+input:valid:not(:placeholder-shown) {border-color: green;}
+
+
+.notActive{
+color: gray;
+opacity: 0.7;
+}

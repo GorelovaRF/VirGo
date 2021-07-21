@@ -1,0 +1,22 @@
+ion-content {
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.container-fluid.registerContainer{
+  max-width: 600px;
+}
+.registerContainer{
+  margin-top: 25vh;
+}
+.registerContainer h3{
+  color: #35a9b7;
+}
+
+.btnVirGo {
+  background-color: #30BCB3;
+    color: white;
+}

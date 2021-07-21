@@ -1,0 +1,14 @@
+<ion-header [translucent]="true"  *ngIf="lugar !== undefined" (lugar)="lugar">
+  <ion-toolbar>
+    <ion-title>{{lugar.LugName}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" style="color: #30BCB3;"></ion-back-button>
+      <ion-menu-button menu="main-menu" style="color: #30BCB3;"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map"  [provideRouteAlternatives]="altRoutes"></div>
+  <div id="indicators"></div>
+</ion-content>

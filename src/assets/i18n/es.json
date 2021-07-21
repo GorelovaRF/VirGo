@@ -1,0 +1,93 @@
+{
+    "login": {
+        "title": "INICIAR SESIÓN",
+        "email": "Email",
+        "pass": "Contraseña",
+        "invalidPass": "Contraseña es obligatoria",
+        "login": "Iniciar sesión",
+        "noRegistrado": "¿Aun no estas regisrado?",
+        "sinRegist": "Seguir sin registrarse",
+        "errMessage" : "Email o password incorrectos"
+    },
+    "menu": {
+        "settings": "Ajustes",
+        "account": "Cuenta",
+        "perfil": "Perfil",
+        "logout": "Cerrar Sesión",
+        "login": "Iniciar Sesión",
+        "home": "Inicio"
+    },
+    "business": {
+        "btnBack": "Volver",
+        "initiateRoute": "Iniciar Ruta",
+        "btnAddFavPlace": "Añadir a lugares favoritos",
+        "noComments": "Aún no hay comentarios",
+        "messageEvaluate": "Evalua ",
+        "messageLogIn": "Inicia sesión para dejar un comentario",
+        "placeholderComment": "Describe tu experiencia",
+        "publicComment": "Publicar",
+        "comments": "Comentarios",
+        "checkedMedida": {
+            "checked1": "Gel antiséptico",
+            "checked2": "Terraza",
+            "checked3": "Distancia adecuada entre personas",
+            "checked4": "Control flujo de aire",
+            "checked5": "Workers with personal protection",
+            "checked6": "Medida de temperatura al entrar",
+            "checked7": "Desinfección de siperficies"
+        },
+        "alertAddFavorPlace": "Ya lo tienes en tu lista de sitios favoritos!",
+        "alertConfirm": "Echa un vistazo a lista! Ya esta en la lista de favoritos!"
+        
+    },
+    "register": {
+        "title": "Registracion",
+        "name": "Nombre",
+        "email": "Email",
+        "reqEmail": "Email es obligatorio",
+        "invalidEmail": "Escribe un email valido",
+        "alreadyExists": "Este email ya existe!",
+        "phone": "Numero de telefono",
+        "foto" : "Foto",
+        "pass": "Contraseña",
+        "reqPass": "La contraseña es obligatoria",
+        "caractPass": " La contraseña debe tener como minimo 6 caracteres, al menos una mayuscula, al menos una minuscula y un numero ",
+        "confirmPass": "Confirmar contraseña",
+        "reqConfirmPass": "La confirmacion de la contraseña es obligatoria",
+        "invalidPass": "La contraseña no coincide ",
+        "btnRegister": "Crear cuenta",
+        "carHol": "Nombre en la tarjeta",
+        "cardNumber": "Numero de la tarjeta",
+        "expDate": "Fecha de expiracion",
+        "cvv": "CVV",
+        "errcarHol": "Nombre en la tarjeta es obligadorio",
+        "errcardNumber": "Numero de la tarjeta es obligadorio",
+        "errexpDate":  "Fecha de expiracion es obligadorio",
+        "errcvv": "CVV  es obligadorio",
+        "errexpDatePattern": "Formato incorrecto",
+        "settings": {
+            "changePass": "Cambiar contraseña",
+            "btnSaveChanges": "Cambiar la informacion",
+            "btnDelete": "Eliminar cuenta",
+            "statusNormal" : "Estándar",
+            "statusPremium" : "Premium"
+        }
+    },
+    "profile": {
+        "favorPlace": "Aun no tienes lugares favoritos",
+        "becomeOwner": "Eres propietario? Crea una cuenta comercial"
+    },
+    "create": {
+        "title": "Crear Cuenta Comercial",
+        "message": "Cuentanos sobre ti y tu negocio que quieres registrar",
+        "send": "Enviar"
+    },
+    "search": {
+        "name": "Nombre",
+        "searchPlace": "Buscar",
+        "tipo": "Tipo de lugar"
+    },
+    
+    "language": "Idioma",
+    "lang": "Español"
+}

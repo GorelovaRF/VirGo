@@ -1,0 +1,49 @@
+
+<ion-content>
+  <div class="container-fluid registerContainer">
+    <form class="card loginForm" [formGroup]="loginForm">
+      <div style="margin: 10px; text-align: center;">
+        <img width="100" src="../../assets/icon/favicon.png">
+      </div>
+      <div class="card-body">
+        
+        <div class="mb-3">
+          <ion-label for="email" class="form-label">{{'login.email' | translate}}</ion-label>
+          <ion-input type="email" class="form-control" name="email" id="email" formControlName="email" required></ion-input>
+        </div>
+        <div class="mb-3">
+          <ion-label for="userPass" class="form-label">{{'login.pass' | translate}}</ion-label>
+          <ion-input type="password" class="form-control" id="userPass" formControlName="password" required></ion-input>
+          <div class="mb-1 mt-1" *ngIf="(f.password.invalid && f.password.touched) || f.password.dirty">
+            <span class="text-danger" *ngIf="f.password.errors?.required">
+              {{'login.invalidPass' | translate}}
+            </span>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btnVirGo w-100" (click)="login()">{{'login.login' | translate}}</button>
+          <div class="mb-1" *ngIf="errorMessage">
+            <span class="text-danger">
+            {{'login.errMessage' | translate}}
+            </span>
+          </div>
+         
+         
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <ion-label (click)="toSingIn()" style="text-decoration: underline;">
+          {{'login.noRegistrado' | translate}}
+        </ion-label>
+      </div>
+
+
+      <div style="text-align: center; margin-top: 10px;">
+        <ion-label (click)="homeGuest()" style=" color:#30BCB3 ;">
+          {{'login.sinRegist' | translate}}
+        </ion-label>
+      </div>
+    </form>
+  </div>
+</ion-content>

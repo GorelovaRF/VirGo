@@ -1,0 +1,70 @@
+<app-mainmenu></app-mainmenu>
+
+<ion-content>
+  <div class="container-fluid registerContainer">
+    <form class="card" [formGroup]="form" name="blogForm" (submit)="onInfoSubmit()">
+      <div class="card-body">
+        <h3 class="text-center mt-0">{{'register.title' | translate}}</h3>
+        <div class="mb-3">
+          <label for="userName" class="form-label" >{{'register.name' | translate}}</label>
+          <input type="text" class="form-control" name="userName" id="userName" formControlName="userName" required>
+        </div>
+
+
+        <div class="mb-3" >
+          <label for="userEmail" class="form-label">{{'register.email' | translate}}</label>
+          <input type="email" class="form-control" name="userEmail" id="email" formControlName="userEmail" required>
+          <div *ngIf="(formContr.userEmail.invalid && formContr.userEmail.touched) || formContr.userEmail.dirty" >
+            <span class="text-danger"
+            *ngIf="formContr.userEmail.errors?.required"  >
+            {{'register.reqEmail' | translate}}
+           </span>
+
+           <span class="text-danger"
+           *ngIf="formContr.userEmail.errors?.pattern" >
+           {{'register.invalidEmail' | translate}}
+          </span>
+
+          <span class="text-danger" *ngIf="formContr.userEmail.errors?.userExists">
+            <!-- This username is already taken! -->
+            {{'register.alreadyExists' | translate}}
+          </span>
+
+          
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="userPhone" class="form-label">{{'register.phone' | translate}}</label>
+          <input type="tel" class="form-control" name="userPhone" id="userPhone" formControlName="userPhone" required>
+        </div>
+        <div class="mb-3">
+          <label for="userPass" class="form-label">{{'register.pass' | translate}}</label>
+          <input type="password" class="form-control" id="userPass" name="userPass" formControlName="userPass" required>
+          <span class="text-danger"
+          *ngIf="(formContr.userPass.touched || submitted) && formContr.userPass.errors?.required">
+          {{'register.reqPass' | translate}}
+         </span>
+         <span class="text-danger"
+          *ngIf="formContr.userPass.touched && formContr.userPass.errors?.invalidPassword">
+          {{'register.caractPass' | translate}}
+      </span>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPass" class="form-label">{{'register.confirmPass' | translate}}</label>
+          <input type="password" class="form-control" id="confirmPass" name="confirmPass" formControlName="passConfirm" required>
+          <span class="text-danger"
+          *ngIf="(formContr.passConfirm.touched || submitted)&& formContr.passConfirm.errors?.required">
+          {{'register.reqConfirmPass' | translate}}
+          </span>
+          <span class="text-danger"
+          *ngIf="formContr.passConfirm.touched && formContr.passConfirm.errors?.passwordMismatch">
+          {{'register.invalidPass' | translate}}
+          </span>
+        </div>
+        <div class="text-center">
+          <button type="submit" style=" background-color: #30BCB3 ; color: white;" class="btn w-100">{{'register.btnRegister' | translate}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,102 @@
+<app-mainmenu></app-mainmenu>
+
+<ion-content>
+<!-- 
+<div>
+  
+  <form style="margin-top: 20px;" (submit)="searchPorDir(search.value,lugType.value)" >
+    <input type="text" placeholder="Buscar" name="search" #search>
+      <select class="custom-select" value="" name="lugType" #lugType>
+        <option value="">Choose type of place</option>
+        <option value="1">Centro comercial</option>
+        <option value="2">Parque</option>
+        <option value="3">Playa</option>
+        <option value="4">Restaurante</option>
+        <option value="5">Cafe</option>
+        <option value="6">Museo</option>
+        <option value="7">Tienda</option>
+      </select>
+
+    <button type="submit"><i class="fa fa-search" ></i></button>
+  </form>
+
+</div>
+
+<div *ngFor="let lugar of lugares" style="margin-top: 20px;">
+  <ion-card (click)='mostrarDetalleLugar(lugar.Id)'>
+    <ion-item>
+      <ion-avatar>
+          <img src="https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg" >
+      </ion-avatar>        
+      <ion-label>{{lugar.LugName}}</ion-label>     
+      <ion-icon class="fa fa-star" style="color:  #ffd700; margin-right: 5px;" ></ion-icon>          
+      <ion-label >       
+          {{lugar.CualificacionMedia.toPrecision(2)}}
+      </ion-label>
+      <ion-label > {{lugar.DameSegmentoHorario.NivelOcupacion}}</ion-label>
+    </ion-item>
+  </ion-card>
+</div> -->
+
+
+<div class="form-group row"></div>
+<div class="form-group row">
+  <div class="col-8" style="margin: 10px; margin-top: 20px;">
+    <input type="text" placeholder="{{'search.searchPlace' | translate}}" class="form-control" id="search" [(ngModel)]="searchValue">
+    <!-- <select class="custom-select" value="" name="lugType"  [(ngModel)]="searchType">
+      <option value="1">Centro comercial</option>
+      <option value="2">Parque</option>
+      <option value="3">Playa</option>
+      <option value="4">Restaurante</option>
+      <option value="5">Cafe</option>
+      <option value="6">Museo</option>
+      <option value="7">Tienda</option>
+    </select> -->
+  </div>
+
+</div>
+
+
+<table class="table">
+  <thead class="thread-dark" style="font-size: 14px;">
+    <tr style="text-align: center;vertical-align: middle;">
+      <th scope="col" >{{'search.name' | translate}}</th>
+      <!-- <th scope="col">Tipo lugar</th> -->
+      <th scope="col">
+        <!-- <ion-icon name="compass-outline" style="zoom: 2.0;"></ion-icon> -->
+        {{'search.tipo' | translate}}
+      </th>
+      <th scope="col">
+        <ion-icon class="fa fa-star" style="color:  #ffd700; zoom: 2.0;"  ></ion-icon>
+      </th>
+      <th scope="col">
+        <ion-icon style=" zoom: 2.0;;" name="people"></ion-icon>
+      </th>
+      <th scope="col">
+        <ion-icon style="zoom: 2.0;" name="medkit"></ion-icon>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lugar of lugares | searchfilter:searchValue" style="font-size: 13px;" (click)="mostrarDetalleLugar(lugar.Id)">
+      <td scope="col">{{lugar.LugName}}</td>
+      <!-- <td scope="col">
+      <option [value]="lugar.TipoLugar" *ngFor="let type of types">{{type.name}}</option>
+      </td> -->
+      <td scope="col" *ngIf="lugar.TipoLugar==1">Centro comercial</td>
+      <td scope="col" *ngIf="lugar.TipoLugar==2">Parque</td>
+      <td scope="col" *ngIf="lugar.TipoLugar==3">Playa</td>
+      <td scope="col" *ngIf="lugar.TipoLugar==4">Restaurante</td>
+      <td scope="col" *ngIf="lugar.TipoLugar==5">Cafeteria</td>
+      <td scope="col" *ngIf="lugar.TipoLugar==6">Museo</td>
+      <td scope="col" *ngIf="lugar.TipoLugar==7">Tienda</td>
+    
+      <td scope="col"> {{lugar.CualificacionMedia.toPrecision(2)}}</td>
+      <td scope="col">{{lugar.DameSegmentoHorario.NivelOcupacion}}</td>
+      <td scope="col">{{lugar.NivelSeguridad}}</td>
+    </tr>
+  </tbody>
+</table>
+  
+
+</ion-content>

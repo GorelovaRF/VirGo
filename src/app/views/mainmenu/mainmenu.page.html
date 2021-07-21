@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="text-end"></ion-title>
+    <ion-buttons slot="start">
+    
+      <ion-menu-button menu="main-menu" style="color: #30BCB3;"></ion-menu-button>
+    </ion-buttons>
+    
+    
+    <div class="float-end me-3" style=" display:flex; justify-content: center; align-items: center;">
+      
+
+      <ion-icon *ngIf="usuario" (click)="goToProfile()"  name="person-circle-outline" style="zoom: 2.0;"></ion-icon> 
+      <ion-icon *ngIf="usuario == undefined" (click)="toLogIn()" name="log-in-outline"  style="zoom: 2.0;"></ion-icon>
+      <!-- <label *ngIf="usuario == undefined" (click)="toLogIn()">Log In</label> -->
+
+    </div>
+
+    <div class="float-end me-3">
+      <ion-icon name="search"  style="zoom: 2.0;" (click)="goToSearch()"></ion-icon>
+    </div>
+
+
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,93 @@
+{
+    "login": {
+        "title": "LOG IN",
+        "email": "Email",
+        "pass": "Password",
+        "invalidPass": "Password is required",
+        "login": "Log In",
+        "noRegistrado": "You are not registered yet?",
+        "sinRegist": "Continue without registering",
+        "errMessage" : "Login or password incorrect"
+    },
+    "menu": {
+        "settings": "Settings",
+        "account": "Account",
+        "perfil": "Profile",
+        "logout": "Log out",
+        "login": "Log in",
+        "home": "Home"
+    },
+    "business": {
+        "btnBack": "Back",
+        "initiateRoute": "Initiate Route",
+        "btnAddFavPlace": "Add to favorite places",
+        "noComments": "No comments yet",
+        "messageEvaluate": "Appraise",
+        "messageLogIn": "Log in to leave a comment",
+        "placeholderComment": "Describe your expirience",
+        "publicComment": "Publish",
+        "btnEdit": "Edit",
+        "comments": "Comments",
+        "checkedMedida": {
+            "checked1": "Sanitizer",
+            "checked2": "Terrace",
+            "checked3": "Suitable distance between people",
+            "checked4": "Air flow control",
+            "checked5": "Workers with personal protection",
+            "checked6": "Temperature measurement entering",
+            "checked7": "Surface disinfection"
+        },
+        "alertAddFavorPlace": "You already have it in your list of favorite sites!",
+        "alertConfirm": "Take a look at the list! It is already in the favorites list!s"
+    },
+    "register": {
+        "title": "Sign Up",
+        "name": "Name",
+        "email": "Email",
+        "reqEmail": "Email is required",
+        "invalidEmail": "Enter a valid e-mail address",
+        "alreadyExists": "This email is already exists!",
+        "foto" : "Foto",
+        "phone": "Phone",
+        "pass": "Password",
+        "reqPass": "Password required",
+        "caractPass": "The password must have at least 6 characters, at least one uppercase, at least one lowercase and at least one number",
+        "confirmPass": "Confirm password",
+        "reqConfirmPass": "Password confirmation required",
+        "invalidPass": "Password does not match",
+        "btnRegister": "Create account",
+        "carHol": "Card Holder",
+        "cardNumber": "Card Numer",
+        "expDate": "Expiry Date",
+        "cvv": "CVV",
+        "errcarHol": "Card Holder is required",
+        "errcardNumber": "Card Numer is required",
+        "errexpDate":  "Expiry Date is required",
+        "errcvv": "CVV is required",
+        "errexpDatePattern": "Format incorrect",
+        "settings": {
+            "changePass": "Change password",
+            "btnSaveChanges": "Save changes",
+            "btnDelete": "Delete account",
+            "statusNormal": "Normal",
+            "statusPremium": "Premium"
+        }
+    },
+    "profile": {
+        "favorPlace": "You don't have favorite places yet",
+        "becomeOwner": "Are you owner? Create a business account"
+    },
+    "create": {
+        "title": "Create Business Account",
+        "message": "Tell us about yourself and your business that you want to register",
+        "send": "Send"
+    },
+    "search": {
+        "name": "Name",
+        "searchPlace": "Search",
+        "tipo": "Place type"
+    },
+
+    "language": "Language",
+    "lang": "English"
+}

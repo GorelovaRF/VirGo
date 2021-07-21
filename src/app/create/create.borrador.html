@@ -1,0 +1,173 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Create New Place</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="mt-4 container-fluid">
+      <form [formGroup]="createForm">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="col-sm-12 mt-3">
+                <div class="form-group">
+                  <label>Official place name</label>
+                  <input formControlName="lugName" class="form-control" type="text" placeholder="Business Name"
+                    required="">
+                </div>
+              </div>
+            </div>
+            <!-- <ion-list>
+            
+              <ion-item>
+                <ion-label>Gender</ion-label>
+                <ion-select placeholder="Select One">
+                  <ion-select-option value="f">Female</ion-select-option>
+                  <ion-select-option value="m">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+  
+            
+            </ion-list> -->
+            <div class="group-gap">
+              <div class="d-block my-3">
+                <div class="form-group">
+                  <div class="mb-3">
+                    <select class="custom-select" (change)="changeCity($event)" formControlName="lugType">
+                      <option value="">Choose type of place</option>
+                      <option *ngFor="let typePlace of TypesPlace" [ngValue]="typePlace">{{typePlace}}</option>
+  
+                    </select>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+  
+            <div class="row">
+  
+              <div class="row">
+                <div class="col-12 col-sm-12">
+                  <div class="form-group">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                          <ion-icon size="small" name="location-outline"></ion-icon>
+                        </span>
+                      </div>
+                      <input formControlName="lugDirection" type="text" class="form-control" placeholder="Direction"
+                        aria-label="lugDirection" aria-describedby="basic-addon1" required="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 mt-sm-0 ">
+                <div class="row">
+                  <div class="col-sm-8 mt-sm-0 ">
+                    <button class="btn btn-info float-right" type="submit" (click)="showLocation()">Show Location</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <div class="map">
+                      <agm-map [latitude]="puntoMapa?.Latitud" [longitude]="puntoMapa?.lng" [zoom]="8"
+                        [disableDefaultUI]="false">
+                        <agm-marker [latitude]="puntoMapa?.Latitud" [longitude]="puntoMapa?.Longitud">
+                        </agm-marker>
+                      </agm-map>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <button class="btn btn-info float-right" type="submit" (click)="createPuntoMapa()">Confirm
+                      location</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12 col-sm-12">
+              <div class="row">
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <ion-icon size="small" name="time-outline"></ion-icon>
+                      </span>
+                    </div>
+                    <input formControlName="lugOpenTime" type="text" class="form-control" placeholder="Opening Time"
+                      aria-label="Opening Time" aria-describedby="basic-addon1" required="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12">
+              <div class="row">
+                <div class="form-group">
+  
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <ion-icon size="small" name="globe-outline"></ion-icon>
+                      </span>
+                    </div>
+                    <input formControlName="lugWebsite" type="text" class="form-control" placeholder="Website"
+                      aria-label="Website" aria-describedby="basic-addon1" required="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                          <ion-icon size="small" name="call-outline"></ion-icon>
+                        </span>
+                      </div>
+                      <input formControlName="lugTel" type="tel" class="form-control" placeholder="Phone"
+                        aria-label="Phone" aria-describedby="basic-addon1" required="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                          <ion-icon size="small" name="call-outline"></ion-icon>
+                        </span>
+                      </div>
+                      <input formControlName="lugEmail" type="tel" class="form-control" placeholder="Email"
+                        aria-label="Email" aria-describedby="basic-addon1" required="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+            <div class="col-sm-8 mt-sm-0 ">
+  
+              <div class="form-group">
+                <textarea formControlName="lugDescription" class="form-control" placeholder="Description" rows="7"
+                  required=""></textarea>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-secondary w-100" type="submit" (click)="createNewPlace()">Create Place</button>
+              </div>
+            </div>
+  
+  
+          </div>
+        </div>
+      </form>
+    </div>
+  </ion-content>

@@ -1,0 +1,279 @@
+<ion-header [translucent]="true" *ngIf="lugar !== undefined" (lugar)="lugar">
+  <ion-toolbar>
+    <ion-title>{{lugar.LugName}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" style="color: #30BCB3;"></ion-back-button>
+      <ion-menu-button menu="main-menu" style="color: #30BCB3;"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="lugar">
+  <div class="mt-4 container-fluid">
+    <form>
+      <div class="row centerC">
+        <div class="col ">
+          <img class="bPhoto" src="{{lugar.Foto}}">
+
+          <div class="row centerC">
+            <div class="col-sm-12 mt-3">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <ion-label>{{lugar.Direccion}}</ion-label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-2" *ngIf="usuarioId && usuarioId.TipoUsuario == 2" >
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="compass"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <div (click)="getRuta(lugar.Id)">
+                    <ion-label> {{'business.initiateRoute' | translate}} </ion-label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-2" *ngIf="usuarioId && usuarioId.TipoUsuario == 1" >
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center notActive">
+                  <ion-icon name="compass"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <div (click)="getRutaEstandar()">
+                    <ion-label class="notActive"> {{'business.initiateRoute' | translate}} </ion-label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-2">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="time-outline"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <ion-label>{{lugar.HorarioApertura}}</ion-label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-2">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="globe-outline"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <ion-label>{{lugar.WebsiteUrl}}</ion-label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-2" *ngIf="(usuarioId && usuarioId.TipoUsuario == 1) || usuarioId == undefined">
+              <img class="gif" src="https://media4.giphy.com/media/ftHrzvaQPK2wqsMN4D/200.gif">
+            </div>
+            <div class="col-sm-12 mt-2">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="call-outline"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <ion-label>{{lugar.Telefono}}</ion-label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 mt-2">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <div class="col-10  col-sm-10">
+                  <ion-label>{{lugar.CualificacionMedia.toPrecision(2)}}</ion-label>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="col-sm-12 mt-2">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="people"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <div>
+                    <ion-label> {{lugar.DameSegmentoHorario.NivelOcupacion}}</ion-label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-sm-12">
+              <div class="row centerC">
+                <div class="col-2 col-sm-2 text-center">
+                  <ion-icon name="medkit-outline"></ion-icon>
+                </div>
+                <div class="col-10 col-sm-10">
+                  <div>
+                    <ion-label> {{lugar.NivelSeguridad}}</ion-label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-12 medidasSeg " *ngIf="medidas">
+              <div class=" pt-3 pb-3">
+                <ul>
+                  <div *ngFor="let medida of medidas">
+                   <li> {{medida.Medida}}</li>
+                  </div>
+                </ul>
+
+              </div>
+            </div>
+            
+
+
+
+
+
+          
+
+          
+
+
+            <div class="text-center" *ngIf="usuarioId" (click)="addToFavPlace()">
+              <button class="btn btnVirGo"> {{'business.btnAddFavPlace' | translate}}</button>
+            </div>
+
+
+            <!-- <div class="text-center" *ngIf="usuarioId && lugar.esFavorito == true" (click)="deleteFavPlace()" >
+              <button  class="btn btn-danger" style="margin: 10px;"> Borrar de lugares favoritos</button>
+            </div> -->
+
+
+
+
+
+
+
+            <div class="col-sm-12 mt-4">
+              <div class="comments mt-3">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-12">
+                      <ion-card *ngIf="!comentarios || comentarios.length === 0" style="height: 45px;">
+                        <ion-item>
+                          <ion-label class="ion-text-center">{{'business.noComments' | translate}}</ion-label>
+                        </ion-item>
+                      </ion-card>
+                    </div>
+
+
+
+                    <div class="col-12" *ngFor="let comentario of comentarios">
+                      <div class="row">
+                        <div class="col-2 p-0 center">
+                          <!-- <img class="rounded-circle" src="{{comentario.UsuarioComProp.Us_foto}}"> -->
+                          <img src="{{comentario.UsuarioComProp.Us_foto}}" class="rounded-circle cropimg imgAvatar">
+                        </div>
+                        <div class="col-8">
+                          <h3> {{comentario.UsuarioComProp.Us_nombre}}</h3>
+                          <p style="font-style: italic; font-size: 13px;">{{comentario.DateCreacion | date:'yyyy-MM-dd'}}</p>
+                          <p class="stars">
+                            <span *ngIf="comentario.CualificacionLugar==1">
+                              <i class="fa fa-star"></i>
+                            </span>
+                            <span *ngIf="comentario.CualificacionLugar==2">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </span>
+                            <span *ngIf="comentario.CualificacionLugar==3">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </span>
+                            <span *ngIf="comentario.CualificacionLugar==4">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </span>
+                            <span *ngIf="comentario.CualificacionLugar==5">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            </span>
+                          </p>
+                          <p style="font-size: 14px"> {{comentario.Com_contenido}}</p>
+                        </div>
+
+                        <div class="col-2" style="font-size: 10px; margin: auto; text-decoration: underline;"
+                          *ngIf=" usuarioId && comentario.UsuarioComProp.Us_id == usuarioId.Us_id   "
+                          (click)="removeComent(comentario.Id)">
+                          <ion-icon name="close-outline"></ion-icon>
+                        </div>
+                        <div class="col-2" style="font-size: 10px; margin: auto; text-decoration: underline;"
+                          *ngIf=" usuarioId && comentario.UsuarioComProp.Us_id !== usuarioId.Us_id  ">
+                          <p></p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="usuarioId">
+          <form [formGroup]="form" name="blogForm" (submit)="onBlogSubmit()">
+            <div class="form-group">
+              <label for="rate">{{'business.messageEvaluate' | translate}} {{lugar.LugName}} </label>
+              <div class="col-sm-12" style="height: 50px;">
+                <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block;">
+                  <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                    <i class="fa fa-star"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <textarea style="border: 1px solid #2EAEA6;" name="coment" rows="5" cols="50"
+                  placeholder="{{'business.placeholderComment' | translate}}" class="form-control" formControlName="coment"></textarea>
+              </div>
+            </div>
+            <button type="submit" name="button" class="btn btnVirGo"
+              style="margin-top: 20px;">{{'business.publicComment' | translate}}</button>
+          </form>
+        </div>
+
+        <div *ngIf="usuarioId == undefined" style="text-align: center; margin-top: 50px;">
+          <button class="btn btn-primary" style="height: 50px;" (click)="toLogIn()">
+            <p>{{'business.messageLogIn' | translate}}</p>
+          </button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </form>
+  </div>
+
+</ion-content>
